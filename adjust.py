@@ -1,6 +1,7 @@
 import os
 from datetime import datetime
-import BathCleaning as bc
+import bathcleaning as bc
+
 
 rePASSWORD = '^' + os.environ['PASSWORD'] + r'\s'
 reADVANCE = r'\sadv$'
