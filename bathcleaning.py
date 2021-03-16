@@ -62,7 +62,7 @@ def getLastGroup():
     return last_group
 
 
-def setLastInfo(month, day, last_group):
+def setReply(month, day, last_group):
     info = '{}/{}\n{}: {}\n{}: {}\n{}: {}'.format(
         month, day,
         last_group[0], room[last_group[0]],
@@ -106,7 +106,7 @@ def updateGroup():
             last_group_index = advanceGroup(group=today_group, index=last_group_index)
         # print(today_group)  # for debug
 
-    setLastInfo(month=now_dt.month, day=now_dt.day, last_group=today_group)
+    setReply(month=now_dt.month, day=now_dt.day, last_group=today_group)
     setLastGroup(today_group[group_per_day - 1])
     setLastDate(now_dt.year, now_dt.month, now_dt.day)
 
