@@ -82,9 +82,11 @@ def getReply():
 
 
 def advanceGroup(group, index):
-    global main_group, group_size
-    index = (index + 1) % group_size
-    group += main_group[index]
+    global main_group, group_size, group_per_day
+
+    for _ in range(group_per_day):
+        index = (index + 1) % group_size
+        group += main_group[index]
     return index
 
 
@@ -101,8 +103,7 @@ def updateGroup():
     today_group = None
     for _ in range(passed_day):
         today_group = []
-        for _ in range(group_per_day):
-            last_group_index = advanceGroup(group=today_group, index=last_group_index)
+        last_group_index = advanceGroup(group=today_group, index=last_group_index)
         # print(today_group)  # for debug
 
     setLastInfo(
