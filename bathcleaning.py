@@ -69,14 +69,14 @@ def setReply(month, day, last_group):
         last_group[1], room[last_group[1]],
         last_group[2], room[last_group[2]],
     )
-    path = './last_day_info/last_info.txt'
+    path = './last_day_info/reply.txt'
     with open(path, mode='w') as f:
         f.write(info)
 
 
 def getReply():
     info = ''
-    path = './last_day_info/last_info.txt'
+    path = './last_day_info/reply.txt'
     with open(path, mode='r') as f:
         info = f.read()
     return info
