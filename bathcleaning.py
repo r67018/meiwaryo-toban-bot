@@ -22,6 +22,8 @@ group_per_day = 3
 
 
 def setLastInfo(year, month, day, group):
+    global group_per_day
+
     #  set date
     path = './last_day_info/year.txt'
     with open(path, mode='w') as f:
@@ -36,7 +38,7 @@ def setLastInfo(year, month, day, group):
     #  set last group
     path = './last_day_info/group.txt'
     with open(path, mode='w') as f:
-        f.write(group)
+        f.write(group[group_per_day - 1])
 
     #  set reply
     reply = '{}/{}\n{}: {}\n{}: {}\n{}: {}'.format(
