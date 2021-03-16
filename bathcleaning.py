@@ -23,16 +23,33 @@ today_group = []
 now_dt = datetime.datetime.now()
 
 
-def setLastDate(year, month, day):
+def setLastInfo(year, month, day, group):
+    #  set date
     path = './last_day_info/year.txt'
     with open(path, mode='w') as f:
-        f.write(str(now_dt.year))
+        f.write(str(year))
     path = './last_day_info/month.txt'
     with open(path, mode='w') as f:
-        f.write(str(now_dt.month))
+        f.write(str(month))
     path = './last_day_info/day.txt'
     with open(path, mode='w') as f:
-        f.write(str(now_dt.day))
+        f.write(str(day))
+
+    #  set last group
+    path = './last_day_info/group.txt'
+    with open(path, mode='w') as f:
+        f.write(group)
+
+    #  set reply
+    reply = '{}/{}\n{}: {}\n{}: {}\n{}: {}'.format(
+        month, day,
+        group[0], room[group[0]],
+        group[1], room[group[1]],
+        group[2], room[group[2]],
+    )
+    path = './last_day_info/reply.txt'
+    with open(path, mode='w') as f:
+        f.write(reply)
 
 
 def getLastDate():
@@ -49,29 +66,11 @@ def getLastDate():
     return year, month, day
 
 
-def setLastGroup(last_group):
-    path = './last_day_info/group.txt'
-    with open(path, mode='w') as f:
-        f.write(last_group)
-
-
 def getLastGroup():
     path = './last_day_info/group.txt'
     with open(path, mode='r') as f:
         last_group = f.read()
     return last_group
-
-
-def setReply(month, day, last_group):
-    info = '{}/{}\n{}: {}\n{}: {}\n{}: {}'.format(
-        month, day,
-        last_group[0], room[last_group[0]],
-        last_group[1], room[last_group[1]],
-        last_group[2], room[last_group[2]],
-    )
-    path = './last_day_info/reply.txt'
-    with open(path, mode='w') as f:
-        f.write(info)
 
 
 def getReply():
@@ -106,9 +105,12 @@ def updateGroup():
             last_group_index = advanceGroup(group=today_group, index=last_group_index)
         # print(today_group)  # for debug
 
-    setReply(month=now_dt.month, day=now_dt.day, last_group=today_group)
-    setLastGroup(today_group[group_per_day - 1])
-    setLastDate(now_dt.year, now_dt.month, now_dt.day)
+    setLastInfo(
+        year=now_dt.year,
+        month=now_dt.month,
+        day=now_dt.day,
+        group=today_group
+    )
 
 
 # def debug():
