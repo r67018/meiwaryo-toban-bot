@@ -19,8 +19,6 @@ room = {
 }
 group_size = len(main_group)
 group_per_day = 3
-today_group = []
-now_dt = datetime.datetime.now()
 
 
 def setLastInfo(year, month, day, group):
