@@ -74,7 +74,7 @@ def setReply(month, day, last_group):
         f.write(info)
 
 
-def getLastInfo():
+def getReply():
     info = ''
     path = './last_day_info/last_info.txt'
     with open(path, mode='r') as f:
@@ -113,7 +113,7 @@ def updateGroup():
 
 # def debug():
 #     updateGroup()
-#     print(getLastInfo())
+#     print(getReply())
 
 
 # debug()
