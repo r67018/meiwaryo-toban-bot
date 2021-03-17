@@ -74,11 +74,11 @@ def getLastGroup():
 
 
 def getReply():
-    info = ''
+    reply = ''
     path = './last_day_info/reply.txt'
     with open(path, mode='r') as f:
-        info = f.read()
-    return info
+        reply = f.read()
+    return reply
 
 
 def advanceGroup(group, index):
@@ -87,7 +87,6 @@ def advanceGroup(group, index):
     for _ in range(group_per_day):
         index = (index + 1) % group_size
         group += main_group[index]
-    return index
 
 
 def updateGroup():
@@ -103,7 +102,7 @@ def updateGroup():
     today_group = None
     for _ in range(passed_day):
         today_group = []
-        last_group_index = advanceGroup(group=today_group, index=last_group_index)
+        advanceGroup(group=today_group, index=last_group_index)
         # print(today_group)  # for debug
 
     setLastInfo(
