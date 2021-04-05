@@ -12,7 +12,10 @@ botに以下のコマンドを送信して下さい
   
 - その他
   - 探してみてね
-  
+
+## 設定
+srcディレクトリ内の`group_config.py`をグループに合わせて設定し、`last_day_info/group.txt`に一番最後グループを書き込みます。
+
 ## 使用したもの
   - [Python](https://www.python.org/)
   - [heroku](https://jp.heroku.com/)
@@ -20,4 +23,3 @@ botに以下のコマンドを送信して下さい
 
 ## フィードバック
   DMで教えてね♡
-  
