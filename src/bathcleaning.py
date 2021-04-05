@@ -1,24 +1,5 @@
 import datetime
-
-
-main_group = ('A', 'B', 'C', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N')
-room = {
-    'A': '213B 214B',
-    'B': '313B 314B',
-    'C': '405B 406B',
-    'E': '211B 311B 312B',
-    'F': '403B 404B',
-    'G': '206B 209B',
-    'H': '310B 309B',
-    'I': '401B 402B',
-    'J': '204B 205B',
-    'K': '305B 306B',
-    'L': '201B 301B',
-    'M': '202B 203B',
-    'N': '303B 304B',
-}
-group_size = len(main_group)
-group_per_day = 3
+from group_config import *
 
 
 def setLastInfo(year, month, day, group):
