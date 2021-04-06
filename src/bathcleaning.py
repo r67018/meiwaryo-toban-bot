@@ -48,3 +48,16 @@ def getTodayMessage():
         name[today_group]
     )
     return message
+
+
+def getNextDayMessage():
+    group_index = (calGroup() + 1) % group_size
+    next_day_group = main_group[group_index]
+    next_dt = datetime.datetime.now() + datetime.timedelta(days=1)
+    message = '{}/{}\n{}: {}'.format(
+        next_dt.month,
+        next_dt.day,
+        next_day_group,
+        name[next_day_group]
+    )
+    return message

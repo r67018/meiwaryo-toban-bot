@@ -50,7 +50,7 @@ def handle_text_message(event):
     if re.search('今日|きょう|きょお|きょー', text):
         info = bc.getTodayMessage()
     elif re.search('明日|あした|芦田愛菜|あしだまな', text):
-        info = '実装がめんどくさいので明日のグループは見れません'
+        info = bc.getNextDayMessage()
     elif re.search('猫|ねこ|キャット|cat|cats', text):
         info = ee.cat()
     elif re.search('プリキュア|ぷりきゅあ', text):
