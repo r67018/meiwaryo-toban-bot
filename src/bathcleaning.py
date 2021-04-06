@@ -4,6 +4,13 @@ import datetime
 from group_config import *
 
 
+def init():
+    # copy 'last_day_info' to '/tmp' if '/tmp/last_day_info' is not exist
+    directory = '/tmp/last_day_info'
+    if not os.path.exists(directory):
+        shutil.copytree('src/last_day_info', '/tmp/last_day_info')
+
+
 def setLastInfo(year, month, day, group):
     global group_per_day
 

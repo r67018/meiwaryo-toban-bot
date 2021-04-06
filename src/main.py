@@ -49,6 +49,7 @@ def handle_text_message(event):
     info = ''
 
     if re.search('今日|きょう|きょお|きょー', text):
+        bc.init()
         bc.updateGroup()
         info = bc.getReply()
     elif re.search('明日|あした|芦田愛菜|あしだまな', text):
