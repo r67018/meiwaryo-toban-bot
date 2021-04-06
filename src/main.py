@@ -58,7 +58,6 @@ def handle_text_message(event):
     elif re.search('おみくじ', text):
         info = ee.omikuji()
     else:
-
         info = '今日のグループを知りたい場合は「今日」と送信してください'
 
     line_bot_api.reply_message(
