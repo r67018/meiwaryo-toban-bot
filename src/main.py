@@ -13,7 +13,6 @@ import os
 import re
 import bathcleaning as bc
 import easteregg as ee
-import adjust
 
 app = Flask(__name__)
 
@@ -49,9 +48,7 @@ def handle_text_message(event):
     info = ''
 
     if re.search('今日|きょう|きょお|きょー', text):
-        bc.init()
-        bc.updateGroup()
-        info = bc.getReply()
+        info = bc.getTodayMessage()
     elif re.search('明日|あした|芦田愛菜|あしだまな', text):
         info = '実装がめんどくさいので明日のグループは見れません'
     elif re.search('猫|ねこ|キャット|cat|cats', text):
