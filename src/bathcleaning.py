@@ -22,12 +22,9 @@ def setLastInfo(year, month, day, group):
         f.write(group[group_per_day - 1])
 
     #  set reply
-    reply = '{}/{}\n{}: {}\n{}: {}\n{}: {}'.format(
-        month, day,
-        group[0], room[group[0]],
-        group[1], room[group[1]],
-        group[2], room[group[2]],
-    )
+    reply = '{}/{}'.format(month, day)
+    for i in range(group_per_day):
+        reply += '\n{}: {}'.format(group[i], room[group[i]])
     path = 'src/last_day_info/reply.txt'
     with open(path, mode='w') as f:
         f.write(reply)
