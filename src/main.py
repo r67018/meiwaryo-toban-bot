@@ -45,7 +45,6 @@ def callback():
 @handler.add(MessageEvent, message=TextMessage)
 def handle_text_message(event):
     text = event.message.text
-    info = ''
 
     if re.search('今日|きょう|きょお|きょー', text):
         info = bc.getTodayMessage()

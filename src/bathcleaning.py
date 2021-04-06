@@ -2,34 +2,6 @@ import datetime
 from group_config import *
 
 
-def setLastInfo(year, month, day, group):
-    global group_per_day
-
-    #  set date
-    path = 'src/last_day_info/year.txt'
-    with open(path, mode='w') as f:
-        f.write(str(year))
-    path = 'src/last_day_info/month.txt'
-    with open(path, mode='w') as f:
-        f.write(str(month))
-    path = 'src/last_day_info/day.txt'
-    with open(path, mode='w') as f:
-        f.write(str(day))
-
-    #  set last group
-    path = 'src/last_day_info/group.txt'
-    with open(path, mode='w') as f:
-        f.write(group[group_per_day - 1])
-
-    #  set reply
-    reply = '{}/{}'.format(month, day)
-    for i in range(group_per_day):
-        reply += '\n{}: {}'.format(group[i], room[group[i]])
-    path = 'src/last_day_info/reply.txt'
-    with open(path, mode='w') as f:
-        f.write(reply)
-
-
 def getLastDate():
     year = month = day = 0
     path = 'src/last_day_info/year.txt'
