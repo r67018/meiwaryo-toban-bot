@@ -1,5 +1,4 @@
 # Change here
 main_group = ()
-room = {}
-group_per_day = 3
+name = {}
 group_size = len(main_group) # Never change
