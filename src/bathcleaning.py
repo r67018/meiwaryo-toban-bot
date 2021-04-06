@@ -3,13 +3,13 @@ from group_config import *
 
 
 def getCriteriaDate():
-    path = 'src/last_day_info/year.txt'
+    path = 'src/info/year.txt'
     with open(path, mode='r') as f:
         year = int(f.read())
-    path = 'src/last_day_info/month.txt'
+    path = 'src/info/month.txt'
     with open(path, mode='r') as f:
         month = int(f.read())
-    path = 'src/last_day_info/day.txt'
+    path = 'src/info/day.txt'
     with open(path, mode='r') as f:
         day = int(f.read())
     return year, month, day
@@ -24,7 +24,7 @@ def calPassedDay():
 
 
 def getCriteriaGroup():
-    path = 'src/last_day_info/group.txt'
+    path = 'src/info/group.txt'
     with open(path, mode='r') as f:
         group = f.read()
     return group
