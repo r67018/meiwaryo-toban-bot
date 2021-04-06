@@ -1,3 +1,5 @@
+import os
+import shutil
 import datetime
 from group_config import *
 
@@ -6,49 +8,46 @@ def setLastInfo(year, month, day, group):
     global group_per_day
 
     #  set date
-    path = 'src/last_day_info/year.txt'
+    path = '/tmp/last_day_info/year.txt'
     with open(path, mode='w') as f:
         f.write(str(year))
-    path = 'src/last_day_info/month.txt'
+    path = '/tmp/last_day_info/month.txt'
     with open(path, mode='w') as f:
         f.write(str(month))
-    path = 'src/last_day_info/day.txt'
+    path = '/tmp/last_day_info/day.txt'
     with open(path, mode='w') as f:
         f.write(str(day))
 
     #  set last group
-    path = 'src/last_day_info/group.txt'
+    path = '/tmp/last_day_info/group.txt'
     with open(path, mode='w') as f:
         f.write(group[group_per_day - 1])
 
     #  set reply
-    reply = '{}/{}\n{}: {}\n{}: {}\n{}: {}'.format(
-        month, day,
-        group[0], room[group[0]],
-        group[1], room[group[1]],
-        group[2], room[group[2]],
-    )
-    path = 'src/last_day_info/reply.txt'
+    reply = '{}/{}'.format(month, day)
+    for i in range(group_per_day):
+        reply += '\n{}: {}'.format(group[i], room[group[i]])
+    path = '/tmp/last_day_info/reply.txt'
     with open(path, mode='w') as f:
         f.write(reply)
 
 
 def getLastDate():
     year = month = day = 0
-    path = 'src/last_day_info/year.txt'
+    path = '/tmp/last_day_info/year.txt'
     with open(path, mode='r') as f:
         year = int(f.read())
-    path = 'src/last_day_info/month.txt'
+    path = '/tmp/last_day_info/month.txt'
     with open(path, mode='r') as f:
         month = int(f.read())
-    path = 'src/last_day_info/day.txt'
+    path = '/tmp/last_day_info/day.txt'
     with open(path, mode='r') as f:
         day = int(f.read())
     return year, month, day
 
 
 def getLastGroup():
-    path = 'src/last_day_info/group.txt'
+    path = '/tmp/last_day_info/group.txt'
     with open(path, mode='r') as f:
         last_group = f.read()
     return last_group
@@ -56,7 +55,7 @@ def getLastGroup():
 
 def getReply():
     reply = ''
-    path = 'src/last_day_info/reply.txt'
+    path = '/tmp/last_day_info/reply.txt'
     with open(path, mode='r') as f:
         reply = f.read()
     return reply
