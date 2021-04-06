@@ -7,6 +7,12 @@ botに以下のコマンドを送信して下さい
   - 「きょお」
   - 「きょー」
 
+- 明日の当番を知りたい時
+  - 「明日」
+  - 「あした」
+  - 「芦田愛菜」
+  - 「あしだなま」
+
 - おみくじを引く時
   - 「おみくじ」
   
@@ -14,12 +20,15 @@ botに以下のコマンドを送信して下さい
   - 探してみてね
 
 ## 設定
-srcディレクトリ内の`group_config.py`をグループに合わせて設定し、`last_day_info/group.txt`に一番最後グループを書き込みます。
+1. このリポジトリをローカルに`clone`
+2. Herokuのリモートリポジトリを追加する
+3. `src/info`内のファイルを現在の日付やグループに合わせて変更し、'src/group_config.py'にグループの情報を書き込む
+4. `add`, `commit`, `push`する
 
 ## 使用したもの
   - [Python](https://www.python.org/)
-  - [heroku](https://jp.heroku.com/)
-  - [git](https://git-scm.com/)
+  - [Heroku](https://jp.heroku.com/)
+  - [Git](https://git-scm.com/)
 
 ## フィードバック
   DMで教えてね♡
