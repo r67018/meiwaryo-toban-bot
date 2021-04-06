@@ -57,14 +57,8 @@ def handle_text_message(event):
         info = ee.pretty_cure()
     elif re.search('おみくじ', text):
         info = ee.omikuji()
-    elif re.search(adjust.rePASSWORD, text):
-        # for adjust
-        if re.search(adjust.reADVANCE, text):
-            adjust.advance()
-        if re.search(adjust.reRETREAT, text):
-            adjust.retreat()
-        return
     else:
+
         info = '今日のグループを知りたい場合は「今日」と送信してください'
 
     line_bot_api.reply_message(
