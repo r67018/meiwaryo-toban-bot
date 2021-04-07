@@ -47,9 +47,16 @@ def handle_text_message(event):
     text = event.message.text
 
     if re.search('今日|きょう|きょお|きょー', text):
-        info = bc.getTodayMessage()
+        info = bc.getNdaysLetterMessage(0)
     elif re.search('明日|あした|芦田愛菜|あしだまな', text):
-        info = bc.getNextDayMessage()
+        info = bc.getNdaysLetterMessage(1)
+    elif re.search(r'\d{4}'):
+        date = bc.conversionMMDD(text)
+        if not bc.isAfterdayf(date):
+            info = '現在の日付より後の日付を送信してください'
+        else:
+            passed_day = bc.calPassedDay(date)
+            info = bc.getNdaysLetterMessage(passed_day)
     elif re.search('猫|ねこ|キャット|cat|cats', text):
         info = ee.cat()
     elif re.search('プリキュア|ぷりきゅあ', text):
