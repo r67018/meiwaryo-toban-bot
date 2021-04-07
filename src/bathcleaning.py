@@ -28,15 +28,14 @@ def isAfterday(date):
     return True
 
 
-def calPassedDay(dt):
+def calPassedDay(date):
     criteria_dt = getCriteriaDate()
-    dt_abs = abs(dt - criteria_dt)
+    dt_abs = abs(date - criteria_dt)
     return dt_abs.days
 
 
-def calGroup():
-    now_dt = datetime.datetime.now().date()
-    passed_day = calPassedDay(now_dt)
+def calGroup(date):
+    passed_day = calPassedDay(date)
     index = (main_group.index(getCriteriaGroup()) + passed_day) % group_size
     return index
 
@@ -47,10 +46,9 @@ def conversionMMDD(MMDD):
     return datetime.date(getCriteriaDate().year, month, day)
 
 
-def getNdaysLetterMessage(n):
-    group_index = (calGroup() + n) % group_size
+def getSpecificDateMessage(date):
+    group_index = calGroup(date)
     group = main_group[group_index]
-    date = datetime.datetime.now() + datetime.timedelta(days=n)
     message = '{}/{}\n{}: {}'.format(
         date.month,
         date.day,

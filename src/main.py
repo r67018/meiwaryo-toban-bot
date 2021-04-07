@@ -11,6 +11,7 @@ from linebot.models import (
 )
 import os
 import re
+import datetime as dt
 import bathcleaning as bc
 import easteregg as ee
 
@@ -47,16 +48,17 @@ def handle_text_message(event):
     text = event.message.text
 
     if re.search('今日|きょう|きょお|きょー', text):
-        info = bc.getNdaysLetterMessage(0)
+        today_dt = dt.datetime.today().date()
+        info = bc.getSpecificDateMessage(today_dt)
     elif re.search('明日|あした|芦田愛菜|あしだまな', text):
-        info = bc.getNdaysLetterMessage(1)
+        next_dt = (dt.datetime.now() + dt.timedelta(days=1)).date()
+        info = bc.getSpecificDateMessage(next_dt)
     elif re.search(r'\d{4}'):
         date = bc.conversionMMDD(text)
-        if not bc.isAfterdayf(date):
+        if not bc.isAfterday(date):
             info = '現在の日付より後の日付を送信してください'
         else:
-            passed_day = bc.calPassedDay(date)
-            info = bc.getNdaysLetterMessage(passed_day)
+            info = bc.getSpecificDateMessage(date)
     elif re.search('猫|ねこ|キャット|cat|cats', text):
         info = ee.cat()
     elif re.search('プリキュア|ぷりきゅあ', text):
