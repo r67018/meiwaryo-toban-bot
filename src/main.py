@@ -53,7 +53,7 @@ def handle_text_message(event):
     elif re.search('明日|あした|芦田愛菜|あしだまな', text):
         next_dt = (dt.datetime.now() + dt.timedelta(days=1)).date()
         info = bc.getSpecificDateMessage(next_dt)
-    elif re.search(r'\d{4}'):
+    elif re.search(r'\d{4}', text):
         date = bc.conversionMMDD(text)
         if not bc.isAfterday(date):
             info = '現在の日付より後の日付を送信してください'
