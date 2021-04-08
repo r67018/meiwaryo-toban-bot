@@ -1,4 +1,4 @@
-import datetime
+import datetime as dt
 from group_config import *
 
 
@@ -12,7 +12,7 @@ def getCriteriaDate():
     path = 'src/info/day.txt'
     with open(path, mode='r') as f:
         day = int(f.read())
-    return datetime.date(year, month, day)
+    return dt.date(year, month, day)
 
 
 def getCriteriaGroup():
@@ -20,12 +20,6 @@ def getCriteriaGroup():
     with open(path, mode='r') as f:
         group = f.read()
     return group
-
-
-def isAfterday(date):
-    if date < getCriteriaDate():
-        return False
-    return True
 
 
 def calPassedDay(date):
@@ -40,10 +34,16 @@ def calGroup(date):
     return index
 
 
+def isAfterday(date):
+    if date < getCriteriaDate():
+        return False
+    return True
+
+
 def conversionMMDD(MMDD):
-    month = int(MMDD[0] + MMDD[1])
-    day = int(MMDD[2] + MMDD[3])
-    return datetime.date(getCriteriaDate().year, month, day)
+    month = int(MMDD[:2])
+    day = int(MMDD[2:4])
+    return dt.date(getCriteriaDate().year, month, day)
 
 
 def getSpecificDateMessage(date):
