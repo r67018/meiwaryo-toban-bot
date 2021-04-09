@@ -33,7 +33,7 @@ def calGroup(date):
     index = (main_group.index(getCriteriaGroup()) + passed_day * group_per_day) % group_size
     groups = []
     for _ in range(group_per_day):
-        groups += main_group[index]
+        groups.append(main_group[index])
         index = (index + 1) % group_size
     return groups
 
