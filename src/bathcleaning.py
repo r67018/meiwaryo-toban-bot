@@ -30,8 +30,12 @@ def calPassedDay(date):
 
 def calGroup(date):
     passed_day = calPassedDay(date)
-    index = (main_group.index(getCriteriaGroup()) + passed_day) % group_size
-    return index
+    index = (main_group.index(getCriteriaGroup()) + passed_day * group_per_day) % group_size
+    groups = []
+    for _ in range(group_per_day):
+        groups += main_group[index]
+        index = (index + 1) % group_size
+    return groups
 
 
 def isAfterday(date):
@@ -47,12 +51,8 @@ def conversionMMDD(MMDD):
 
 
 def getSpecificDateMessage(date):
-    group_index = calGroup(date)
-    group = main_group[group_index]
-    message = '{}/{}\n{}: {}'.format(
-        date.month,
-        date.day,
-        group,
-        name[group]
-    )
+    groups = calGroup(date)
+    message = '{}/{}'.format(date.month, date.day)
+    for group in groups:
+        message += '\n{}: {}'.format(group, name[group])
     return message
