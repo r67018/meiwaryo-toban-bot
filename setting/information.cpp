@@ -33,8 +33,8 @@ int set::information::getGroupPerDay()
 
 void set::information::createGroup()
 {
-    std::cout << "グループに対応する名前を入力してください" << std::endl;
-    std::cout << "一つのグループに複数人いる場合はカンマで区切ってください" << std::endl;
+    std::cout << "Enter the corresponding name for the group" << std::endl;
+    std::cout << "If there is more than one person in a group, please separate them with commas" << std::endl;
     for (int i = 0; i < _group_count; ++i) {
         int number = i + (_name_mode == NAME_MODE_NUM ? 1 : 'A');
         std::string name;
