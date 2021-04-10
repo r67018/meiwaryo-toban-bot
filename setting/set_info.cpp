@@ -80,7 +80,7 @@ int main()
     main_group << "main_group = [";
     for (int i = 0; i < group_count; ++i) {
         if (name_mode == NAME_MODE_NUM) {
-            main_group << i + 1;
+            main_group << "'" << i + 1 << "'";
         } else if (name_mode == NAME_MODE_ALPHABET) {
             main_group << "'" << char('A' + i) << "'";
         }
@@ -95,7 +95,7 @@ int main()
     std::map<int, std::string> groups = info.getGroup();
     for (auto& group : groups) {
         if (name_mode == NAME_MODE_NUM) {
-            name << group.first;
+            name << "'" << group.first << "'";
         } else if (name_mode == NAME_MODE_ALPHABET) {
             name << "'" << char(group.first) << "'";
         }
