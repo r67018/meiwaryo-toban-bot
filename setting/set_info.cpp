@@ -35,7 +35,7 @@ int main()
 
     // input information
     set::information info;
-    std::cout << "グループの個数は何個ですか" << std::endl;
+    std::cout << "Enter the number of group" << std::endl;
     int group_count;
     do {
         std::cout << ">> ";
@@ -43,17 +43,17 @@ int main()
     } while (group_count <= 0);
     info.setGroupCount(group_count);
 
-    std::cout << "1日当たりのグループ数は何個ですか" << std::endl;
+    std::cout << "Enter the group per day" << std::endl;
     int group_per_day;
     std::cout << ">> ";
     std::cin >> group_per_day;
 
-    std::cout << "グループ名は数字ですか、アルファベットですか" << std::endl;
-    std::cout << "0: 数字, 1: アルファベット" << std::endl;
+    std::cout << "Is the group name \"number\" or \"alphabet\"?" << std::endl;
+    std::cout << "0: number, 1: alphabet" << std::endl;
     int name_mode;
     do {
         if (info.getGroupCount() >= 28) {
-            std::cout << "グループ数が28個以上のため、自動的に数字が選択されます" << std::endl;
+            std::cout << "\"number\" will be automatically selected because the number of group is more than 28" << std::endl;
             name_mode = NAME_MODE_NUM;
             break;
         }
@@ -63,7 +63,7 @@ int main()
     info.setNameMode(name_mode);
 
     // write today group
-    std::cout << "今日のグループは何ですか" << std::endl;
+    std::cout << "What is today's group?" << std::endl;
     std::string today_group;
     std::cout << ">> ";
     std::cin >> today_group;
