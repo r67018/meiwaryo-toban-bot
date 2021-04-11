@@ -1,3 +1,6 @@
+#ifndef INFORMATION_HPP
+#define INFORMATION_HPP
+
 #include <map>
 #include <string>
 #define NAME_MODE_NUM 0
@@ -22,3 +25,5 @@ namespace set {
         std::map<int, std::string> getGroup();
     };
 }
+
+#endif
