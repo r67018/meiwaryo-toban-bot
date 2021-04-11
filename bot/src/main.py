@@ -56,13 +56,12 @@ def handle_text_message(event):
     elif re.search(r'\d{4}', text):
         try:
             date = bc.conversionMMDD(text)
+            if not bc.isAfterday(date):
+                info = '現在の日付より後の日付を送信してください'
+            else:
+                info = bc.getSpecificDateMessage(date)
         except ValueError:
             info = '正しい日付を送信してください'
-            break
-        if not bc.isAfterday(date):
-            info = '現在の日付より後の日付を送信してください'
-        else:
-            info = bc.getSpecificDateMessage(date)
     elif re.search('猫|ねこ|キャット|cat|cats', text):
         info = ee.cat()
     elif re.search('プリキュア|ぷりきゅあ', text):
