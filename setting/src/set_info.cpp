@@ -21,21 +21,21 @@ int main()
     // write date to the files
     std::string path;
 
-    path = "../src/info/year.txt";
+    path = "../../bot/info/year.txt";
     std::ofstream year_txt(path);
     year_txt << year;
 
-    path = "../src/info/month.txt";
+    path = "../../bot/info/month.txt";
     std::ofstream month_txt(path);
     month_txt << month;
 
-    path = "../src/info/day.txt";
+    path = "../../bot/info/day.txt";
     std::ofstream day_txt(path);
     day_txt << day;
 
     // input information
     set::information info;
-    std::cout << "ƒOƒ‹[ƒv‚ÌŒÂ”‚Í‰½ŒÂ‚Å‚·‚©" << std::endl;
+    std::cout << "ï¿½Oï¿½ï¿½ï¿½[ï¿½vï¿½ÌŒÂï¿½ï¿½Í‰ï¿½ï¿½Â‚Å‚ï¿½ï¿½ï¿½" << std::endl;
     int group_count;
     do {
         std::cout << ">> ";
@@ -43,17 +43,17 @@ int main()
     } while (group_count <= 0);
     info.setGroupCount(group_count);
 
-    std::cout << "1“ú“–‚½‚è‚ÌƒOƒ‹[ƒv”‚Í‰½ŒÂ‚Å‚·‚©" << std::endl;
+    std::cout << "1ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÌƒOï¿½ï¿½ï¿½[ï¿½vï¿½ï¿½ï¿½Í‰ï¿½ï¿½Â‚Å‚ï¿½ï¿½ï¿½" << std::endl;
     int group_per_day;
     std::cout << ">> ";
     std::cin >> group_per_day;
 
-    std::cout << "ƒOƒ‹[ƒv–¼‚Í”Žš‚Å‚·‚©AƒAƒ‹ƒtƒ@ƒxƒbƒg‚Å‚·‚©" << std::endl;
-    std::cout << "0: ”Žš, 1: ƒAƒ‹ƒtƒ@ƒxƒbƒg" << std::endl;
+    std::cout << "ï¿½Oï¿½ï¿½ï¿½[ï¿½vï¿½ï¿½ï¿½Íï¿½ï¿½ï¿½ï¿½Å‚ï¿½ï¿½ï¿½ï¿½Aï¿½Aï¿½ï¿½ï¿½tï¿½@ï¿½xï¿½bï¿½gï¿½Å‚ï¿½ï¿½ï¿½" << std::endl;
+    std::cout << "0: ï¿½ï¿½ï¿½ï¿½, 1: ï¿½Aï¿½ï¿½ï¿½tï¿½@ï¿½xï¿½bï¿½g" << std::endl;
     int name_mode;
     do {
         if (info.getGroupCount() >= 28) {
-            std::cout << "ƒOƒ‹[ƒv”‚ª28ŒÂˆÈã‚Ì‚½‚ßAŽ©“®“I‚É”Žš‚ª‘I‘ð‚³‚ê‚Ü‚·" << std::endl;
+            std::cout << "ï¿½Oï¿½ï¿½ï¿½[ï¿½vï¿½ï¿½ï¿½ï¿½28ï¿½ÂˆÈï¿½Ì‚ï¿½ï¿½ßAï¿½ï¿½ï¿½ï¿½ï¿½Iï¿½Éï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Iï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ü‚ï¿½" << std::endl;
             name_mode = NAME_MODE_NUM;
             break;
         }
@@ -63,18 +63,18 @@ int main()
     info.setNameMode(name_mode);
 
     // write today group
-    std::cout << "¡“ú‚ÌƒOƒ‹[ƒv‚Í‰½‚Å‚·‚©" << std::endl;
+    std::cout << "ï¿½ï¿½ï¿½ï¿½ï¿½ÌƒOï¿½ï¿½ï¿½[ï¿½vï¿½Í‰ï¿½ï¿½Å‚ï¿½ï¿½ï¿½" << std::endl;
     std::string today_group;
     std::cout << ">> ";
     std::cin >> today_group;
-    path = "../src/info/group.txt";
+    path = "../../bot/info/group.txt";
     std::ofstream group_txt(path);
     group_txt << today_group;
 
     info.createGroup();
 
     // write into src/group_config.py
-    path = "../src/group_config.py";
+    path = "../../bot/group_config.py";
     std::ofstream group_config_py(path);
     std::stringstream main_group;
     main_group << "main_group = [";
