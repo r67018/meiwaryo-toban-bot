@@ -21,15 +21,15 @@ int main()
     // write date to the files
     std::string path;
 
-    path = "../src/info/year.txt";
+    path = "../../bot/info/year.txt";
     std::ofstream year_txt(path);
     year_txt << year;
 
-    path = "../src/info/month.txt";
+    path = "../../bot/info/month.txt";
     std::ofstream month_txt(path);
     month_txt << month;
 
-    path = "../src/info/day.txt";
+    path = "../../bot/info/day.txt";
     std::ofstream day_txt(path);
     day_txt << day;
 
@@ -67,14 +67,14 @@ int main()
     std::string today_group;
     std::cout << ">> ";
     std::cin >> today_group;
-    path = "../src/info/group.txt";
+    path = "../../bot/info/group.txt";
     std::ofstream group_txt(path);
     group_txt << today_group;
 
     info.createGroup();
 
     // write into src/group_config.py
-    path = "../src/group_config.py";
+    path = "../../bot/group_config.py";
     std::ofstream group_config_py(path);
     std::stringstream main_group;
     main_group << "main_group = [";
