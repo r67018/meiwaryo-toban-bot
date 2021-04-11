@@ -36,8 +36,8 @@ git remote add heroku HerokuのGitURL
 ```
 3. アクセストークンとチャンネルシークレットを設定する
 ```
-heroku config:set YOUR_CHANNEL_ACCESS_TOKEN="LineBotのアクセストークン"
-heroku config:set YOUR_CHANNEL_SECRET="LineBotのチャンネルシークレット"
+sudo heroku config:set YOUR_CHANNEL_ACCESS_TOKEN="LineBotのアクセストークン"
+sudo heroku config:set YOUR_CHANNEL_SECRET="LineBotのチャンネルシークレット"
 ```
 4. `setting/src`に移動し, 下のコマンドを貼り付ける,
 ```
@@ -51,7 +51,7 @@ g++ set_info.o information.o -o main
 cd ../..
 git add .
 git commit -m "initial setting"
-git push heroku main
+sudo git push heroku main --force
 ```
 7. LineBot の Webhook URL に`HerokuのWebURL/callback` を書き込み保存
 

@@ -54,7 +54,11 @@ def handle_text_message(event):
         next_dt = (dt.datetime.now() + dt.timedelta(days=1)).date()
         info = bc.getSpecificDateMessage(next_dt)
     elif re.search(r'\d{4}', text):
-        date = bc.conversionMMDD(text)
+        try:
+            date = bc.conversionMMDD(text)
+        except ValueError:
+            info = '正しい日付を送信してください'
+            break
         if not bc.isAfterday(date):
             info = '現在の日付より後の日付を送信してください'
         else:
