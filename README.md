@@ -32,7 +32,7 @@ git remote add heroku HerokuのGitURL
 ```
 3. アクセストークンとチャンネルシークレットを設定する
 ```
-heroku config:set YOUR_CHANNEL_ACCESS_TOKE="LineBotのアクセストークン"
+heroku config:set YOUR_CHANNEL_ACCESS_TOKEN="LineBotのアクセストークン"
 heroku config:set YOUR_CHANNEL_SECRET="LineBotのチャンネルシークレット"
 ```
 4. `setting/src`に移動し, 下のコマンドを貼り付ける,
