@@ -3,20 +3,20 @@ from group_config import *
 
 
 def getCriteriaDate():
-    path = 'src/info/year.txt'
+    path = 'bot/info/year.txt'
     with open(path, mode='r') as f:
         year = int(f.read())
-    path = 'src/info/month.txt'
+    path = 'bot/info/month.txt'
     with open(path, mode='r') as f:
         month = int(f.read())
-    path = 'src/info/day.txt'
+    path = 'bot/info/day.txt'
     with open(path, mode='r') as f:
         day = int(f.read())
     return dt.date(year, month, day)
 
 
 def getCriteriaGroup():
-    path = 'src/info/group.txt'
+    path = 'bot/info/group.txt'
     with open(path, mode='r') as f:
         group = f.read()
     return group
