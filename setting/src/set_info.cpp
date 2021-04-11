@@ -74,7 +74,7 @@ int main()
     info.createGroup();
 
     // write into src/group_config.py
-    path = "../../bot/group_config.py";
+    path = "../../bot/src/group_config.py";
     std::ofstream group_config_py(path);
     std::stringstream main_group;
     main_group << "main_group = [";
