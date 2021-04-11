@@ -15,7 +15,7 @@ int main()
     // convert to string
     std::string year = "20";
     year += std::to_string(lt->tm_year - 100);
-    std::string month = std::to_string(lt->tm_mon);
+    std::string month = std::to_string(lt->tm_mon + 1);
     std::string day = std::to_string(lt->tm_mday);
 
     // write date to the files
