@@ -24,10 +24,36 @@ botに以下のコマンドを送信して下さい
   - 探してみてね
 
 ## 設定
-1. このリポジトリをローカルに`clone`
+- **UTF-8の環境で実行してください**
+- **Windowsで設定する場合はWSL上で行った方がいいです**
+1. このリポジトリをローカルに clone
+```
+git clone https://github.com/swk67018/meiwaryo-toban-bot.git
+```
 2. Herokuのリモートリポジトリを追加する
-3. `src/info`内のファイルを現在の日付やグループに合わせて変更し、`src/group_config.py`にグループの情報を書き込む
-4. `add`, `commit`, `push`する
+```
+git remote add heroku HerokuのGitURL
+```
+3. アクセストークンとチャンネルシークレットを設定する
+```
+heroku config:set YOUR_CHANNEL_ACCESS_TOKEN="LineBotのアクセストークン"
+heroku config:set YOUR_CHANNEL_SECRET="LineBotのチャンネルシークレット"
+```
+4. `setting/src`に移動し, 下のコマンドを貼り付ける,
+```
+g++ -c set_info.cpp information.cpp
+g++ set_info.o information.o -o main
+./main
+```
+5. 設定用のプログラムが起動するのでそれに沿って進める
+6. ルートディレクトリに移動し, Git に push
+```
+cd ../..
+git add .
+git commit -m "initial setting"
+git push heroku main
+```
+7. LineBot の Webhook URL に`HerokuのWebURL/callback` を書き込み保存
 
 ## 使用したもの
   - [Python](https://www.python.org/)
