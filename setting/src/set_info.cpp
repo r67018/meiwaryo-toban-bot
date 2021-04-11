@@ -99,7 +99,7 @@ int main()
         } else if (name_mode == NAME_MODE_ALPHABET) {
             name << "'" << char(group.first) << "'";
         }
-        name << ": " << group.second << ", ";
+        name << ": '" << group.second << "', ";
     }
     name << "}\n";
     group_config_py << name.str();
